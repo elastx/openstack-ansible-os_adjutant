@@ -159,7 +159,7 @@ workflow:
       days_between_autoapprove: {{ adjutant_quota_auto_approve_days }}
     ResetUserPasswordAction:
       blacklisted_roles:
-{{ adjutant_blacklisted_roles | to_nice_yaml(indent=2, width=140) | indent(8, True) }}
+{{ (adjutant_blacklisted_roles + adjutant_reset_password_blacklisted_roles) | to_nice_yaml(indent=2, width=140) | indent(8, True) }}
     SendAdditionalEmailAction:
       prepare:
         subject: Openstack Email Notification
